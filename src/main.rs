@@ -1,3 +1,8 @@
+/***************************************************************************************************
+*                                                                                                  *
+*                                        ARRAYS                                                    *
+*                                                                                                  *
+***************************************************************************************************/
 fn main() {
 
 /***************************************************************************************************
@@ -94,4 +99,100 @@ presente em um array.
     else {
         println!("Não, o elemento especificado não está presente no Array");
     }
+
+/***************************************************************************************************
+*                                                                                                  *
+*                                        VETORES                                                   *
+*                                                                                                  *
+***************************************************************************************************/
+
+/***************************************************************************************************
+Exercício 1: Adicionar Elementos a um Vetor
+Enunciado: Escreva um programa em Rust que crie um vetor vazio e adicione a ele os
+números de 1 a 5, um de cada vez, usando um loop.
+***************************************************************************************************/
+
+    let mut vetor: Vec<i32> = Vec::new();
+    let mut count = 0;
+
+    loop {
+        count += 1;
+        vetor.push(count);
+
+        if count == 5 {
+            println!("O vetor agora tem os seguintes números nele: {:?}", vetor);
+            break;
+        }
+}
+
+/***************************************************************************************************
+Exercício 2: Remover Elemento Específico
+Enunciado: Escreva um programa em Rust que remova o primeiro elemento de
+valor 3 de um vetor de inteiros.
+***************************************************************************************************/
+
+    let mut vetor = vec![1, 3, 5, 3, 7];
+    let mut snipe = false;
+
+    for (indice, &valor) in vetor.iter().enumerate() {
+        if valor == 3 {
+            vetor.remove(indice);
+            snipe = true;
+            break
+
+        }
+    }
+
+    if snipe {
+    println!("O primeiro valor 3 foi removido com sucesso! {:?}", vetor);
+    }
+    else {
+    println!("Não foi encontrado um valor 3 pra ser removido. {:?}", vetor);
+    }
+
+/***************************************************************************************************
+Exercício 3: Calcular a Soma de Elementos
+Enunciado: Escreva um programa em Rust que calcule a soma de todos os elementos
+em um vetor de números inteiros.
+***************************************************************************************************/
+
+    let vetor = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let sum: i32 = vetor.iter().sum();
+
+    println!("O valor total desse vetor é: {}", sum);
+
+/***************************************************************************************************
+Exercício 4: Encontrar o Menor Elemento
+Enunciado: Escreva um programa em Rust que encontre o menor elemento em um vetor de números
+inteiros.
+***************************************************************************************************/
+
+    let vetor = vec![2, 8, 4, 6, 10, 1, 9, 3, 7, 5];
+    let min_value = vetor.iter().min();
+
+    match min_value {
+        Some(min) => println!("O valor mínimo é: {}", min),
+        None => println!("O vetor está vazio")
+    }
+
+/***************************************************************************************************
+Exercício 5: Filtrar Elementos Pares e Criar um Novo Vetor
+Enunciado: Escreva um programa em Rust que, dado um vetor de números inteiros, crie
+um novo vetor contendo apenas os elementos pares do vetor original.
+***************************************************************************************************/
+
+    let vetor = vec![2, 8, 4, 6, 10, 1, 9, 3, 7, 5];
+    let mut vetor_par = Vec::new();
+
+    for &numero in &vetor {
+        if numero % 2 == 0 {
+            vetor_par.push(numero);
+        }
+    }
+
+    assert_eq!(vetor, vec![2, 8, 4, 6, 10, 1, 9, 3, 7, 5]);
+    assert_eq!(vetor_par, vec![2, 8, 4, 6, 10]);
+
+    println!("Aqui está o vetor novo com apenas os elementos pares do original: {:?}", vetor_par);
+
 }
