@@ -195,4 +195,38 @@ um novo vetor contendo apenas os elementos pares do vetor original.
 
     println!("Aqui está o vetor novo com apenas os elementos pares do original: {:?}", vetor_par);
 
+/***************************************************************************************************
+*                                                                                                  *
+*                                        STRUCT                                                    *
+*                                                                                                  *
+***************************************************************************************************/
+
+/***************************************************************************************************
+Exercício 1: Definir e Instanciar uma Struct
+Enunciado: Defina uma struct Carro que tenha três campos: marca, modelo, e ano.
+Crie uma instância dessa struct e imprima seus valores no console.
+***************************************************************************************************/
+
+    struct Carro {
+        marca: String,
+        modelo: String,
+        ano: u32,
+    }
+
+    let instancia = Carro {
+        marca: String::from("Chevrolet"),
+        modelo: String::from("Ferrari"),
+        ano: 2024,
+    };
+
+    println!("Marca: {}", instancia.marca);
+    println!("Modelo: {}", instancia.modelo);
+    println!("Ano: {}", instancia.ano);
+
+/***************************************************************************************************
+Exercício 2: Adicionar Método à Struct
+Enunciado: Utilizando a struct Carro do exercício anterior, adicione um método descricao que
+retorna uma string formatada com todos os dados do carro. Chame este método para uma
+instância de Carro e imprima o resultado.
+***************************************************************************************************/
 }
